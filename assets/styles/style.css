@@ -1,0 +1,192 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+/* Vars */
+:root {
+    --main-background: hsl(233, 47%, 7%);
+    --card-background: hsl(244, 38%, 16%);
+    --accent: hsl(277, 64%, 61%);
+
+    --white: hsl(0, 0%, 100%);
+    --main-paragraph: hsla(0, 0%, 100%, 0.75);
+    --stat-headings: hsla(0, 0%, 100%, 0.6);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 10px;
+    min-height: 100vh;
+    background-color: var(--main-background);
+
+    font-family: "Inter", sans-serif;
+}
+
+/* Card Component */
+.card-container {
+    border-radius: 10px;
+    margin: 20px;
+    width: 350px;
+    background-color: var(--card-background);
+}
+
+.image-container > img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+}
+
+.image-container:before {
+    content:"";
+    position: absolute;
+    top:10;
+    left:10;
+    height: 257px;
+    width: 350px;
+    background: hsla(277, 64%, 61%, 0.5);
+    z-index: 1;
+
+    border-radius: 10px 10px 0 0;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.top-content  > h1 {
+    color: var(--white);
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.description {
+    padding: 20px 20px 30px 20px;
+
+    line-height: 1.5rem;
+    color: var(--main-paragraph);
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-transform: uppercase;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stats p:first-of-type {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.stats p:last-of-type {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    color: var(--stat-headings);
+}
+
+/* Footer */
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    color: var(--white);
+}
+
+.attribution a {
+    color: var(--accent);
+}
+
+/* Landscape */
+@media screen and (min-width: 1200px) {
+    .card-container {
+        display: flex;
+        flex-direction: row-reverse;
+        
+        width: 1000px;
+    }
+
+    .image-container {
+        font-size: 0;
+        line-height: 0;
+    }
+
+    .image-container > img {
+        content: url("../images/image-header-desktop.jpg");
+        border-radius: 0 10px 10px 0;
+    }
+
+    .image-container:before {
+        height: 369px;
+        width: 447px;
+    
+        border-radius: 0 10px 10px 0;
+    }
+
+    .content-container {
+        padding-right: 80px;
+        width: 65%;
+    }
+
+    .top-content {
+        width: 80%;
+    }
+
+    .top-content > h1 {
+        text-align: left;
+    }
+
+    .description {
+        padding: 20px 0;
+
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .stats-container {
+        flex-direction: row;
+        align-self: flex-start;
+        justify-content: space-between;
+
+        padding: 40px 0 0 40px;
+        width: 80%;
+    }
+
+    .stats {
+        align-items: flex-start;
+    }
+
+    .stats p:first-of-type {
+        font-size: 1.3rem;
+    }
+
+    .stats p:last-of-type {
+        font-size: 0.7rem;
+    }
+}
